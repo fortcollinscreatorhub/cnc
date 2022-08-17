@@ -1,20 +1,24 @@
 + =======================================
 + ---
++ FCCH Version 1 swarren 2022/08/09
++ Sync header with mm version, re-org
++ Sync NEW_SEGMENT to mm version
++ ---
 + Version 1
 +   Tony     02/08/2005 Written
 +   Pieter   20/06/2008 adapted for EMC2, begin + end
 +   its uses M7 to start coolant/vacu-cleaner
 +   Mark	   28/06/2008 Added Arcs and new segment section.
-+   Mark     11/08/2008 mm G64 version.
++   Mark     11/08/2008 Inch version.
 + =======================================
 
 
-POST_NAME = "LinuxCNC Arcs(mm)(*.ngc)"
+POST_NAME = "FCCH LinuxCNC Arcs(inch)(*.ngc)"
 
 
 FILE_EXTENSION = "ngc"
 
-UNITS = "MM"
+UNITS = "INCHES"
 
 +------------------------------------------------
 +    Line terminating characters
@@ -39,15 +43,15 @@ LINE_NUMBER_MAXIMUM = 999999
 VAR LINE_NUMBER = [N|A|N|1.0]
 VAR SPINDLE_SPEED = [S|A|S|1.0]
 VAR FEED_RATE = [F|C|F|1.1]
-VAR X_POSITION = [X|C|X|1.3]
-VAR Y_POSITION = [Y|C|Y|1.3]
-VAR Z_POSITION = [Z|C|Z|1.3]
-VAR ARC_CENTRE_I_INC_POSITION = [I|A|I|1.3]
-VAR ARC_CENTRE_J_INC_POSITION = [J|A|J|1.3]
-VAR X_HOME_POSITION = [XH|A|X|1.3]
-VAR Y_HOME_POSITION = [YH|A|Y|1.3]
-VAR Z_HOME_POSITION = [ZH|A|Z|1.3]
-VAR SAFE_Z_HEIGHT = [SAFEZ|A|Z|1.3]
+VAR X_POSITION = [X|C|X|1.4]
+VAR Y_POSITION = [Y|C|Y|1.4]
+VAR Z_POSITION = [Z|C|Z|1.4]
+VAR ARC_CENTRE_I_INC_POSITION = [I|A|I|1.4]
+VAR ARC_CENTRE_J_INC_POSITION = [J|A|J|1.4]
+VAR X_HOME_POSITION = [XH|A|X|1.4]
+VAR Y_HOME_POSITION = [YH|A|Y|1.4]
+VAR Z_HOME_POSITION = [ZH|A|Z|1.4]
+VAR SAFE_Z_HEIGHT = [SAFEZ|A|Z|1.4]
 
 +================================================
 +
@@ -62,11 +66,11 @@ VAR SAFE_Z_HEIGHT = [SAFEZ|A|Z|1.3]
 begin HEADER
 
 "%"
-"G21 G40 G49 G64 P0.03 M6 T1"
-"G17"
-"M7"
-"G0[ZH]"
-"G0[XH][YH][S]M3"
+"T[T] M6"
+"G0 G17 G20 G90 G40 G49 G64 P0.001"
+"G0 [ZH]"
+"G0 [XH] [YH]"
+"M3 M8 [S]"
 
 
 +---------------------------------------------------
@@ -138,7 +142,7 @@ begin CCW_ARC_MOVE
 
 begin NEW_SEGMENT
 
-"[S]M03"
+"M3 M8 [S]"
 +---------------------------------------------------
 +  Commands output at the end of the file
 +---------------------------------------------------

@@ -1,20 +1,24 @@
 + =======================================
 + ---
++ FCCH Version 1 swarren 2022/08/09
++ Sync header with inch version, re-org, e.g. add G90
++ Sync NEW_SEGMENT from inch version
++ ---
 + Version 1
 +   Tony     02/08/2005 Written
 +   Pieter   20/06/2008 adapted for EMC2, begin + end
 +   its uses M7 to start coolant/vacu-cleaner
 +   Mark	   28/06/2008 Added Arcs and new segment section.
-+   Mark     11/08/2008 Inch version.
++   Mark     11/08/2008 mm G64 version.
 + =======================================
 
 
-POST_NAME = "LinuxCNC Arcs(inch)(*.ngc)"
+POST_NAME = "FCCH LinuxCNC Arcs(mm)(*.ngc)"
 
 
 FILE_EXTENSION = "ngc"
 
-UNITS = "INCHES"
+UNITS = "MM"
 
 +------------------------------------------------
 +    Line terminating characters
@@ -39,15 +43,15 @@ LINE_NUMBER_MAXIMUM = 999999
 VAR LINE_NUMBER = [N|A|N|1.0]
 VAR SPINDLE_SPEED = [S|A|S|1.0]
 VAR FEED_RATE = [F|C|F|1.1]
-VAR X_POSITION = [X|C|X|1.4]
-VAR Y_POSITION = [Y|C|Y|1.4]
-VAR Z_POSITION = [Z|C|Z|1.4]
-VAR ARC_CENTRE_I_INC_POSITION = [I|A|I|1.4]
-VAR ARC_CENTRE_J_INC_POSITION = [J|A|J|1.4]
-VAR X_HOME_POSITION = [XH|A|X|1.4]
-VAR Y_HOME_POSITION = [YH|A|Y|1.4]
-VAR Z_HOME_POSITION = [ZH|A|Z|1.4]
-VAR SAFE_Z_HEIGHT = [SAFEZ|A|Z|1.4]
+VAR X_POSITION = [X|C|X|1.3]
+VAR Y_POSITION = [Y|C|Y|1.3]
+VAR Z_POSITION = [Z|C|Z|1.3]
+VAR ARC_CENTRE_I_INC_POSITION = [I|A|I|1.3]
+VAR ARC_CENTRE_J_INC_POSITION = [J|A|J|1.3]
+VAR X_HOME_POSITION = [XH|A|X|1.3]
+VAR Y_HOME_POSITION = [YH|A|Y|1.3]
+VAR Z_HOME_POSITION = [ZH|A|Z|1.3]
+VAR SAFE_Z_HEIGHT = [SAFEZ|A|Z|1.3]
 
 +================================================
 +
@@ -63,9 +67,10 @@ begin HEADER
 
 "%"
 "T[T] M6"
-"G0 G17 G20 G90 G40 G49 G64 P0.001"
+"G0 G17 G21 G90 G40 G49 G64 P0.03"
 "G0 [ZH]"
-"G0 [XH] [YH] M3 M8 [S]"
+"G0 [XH] [YH]"
+"M3 M8 [S]"
 
 
 +---------------------------------------------------
