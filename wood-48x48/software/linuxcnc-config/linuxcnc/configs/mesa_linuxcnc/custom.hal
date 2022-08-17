@@ -1,0 +1,37 @@
+
+# Include your custom HAL commands here
+# This file will not be overwritten when you run PNCconf again
+
+loadrt debounce cfg=4,1
+setp debounce.0.delay 100
+setp debounce.1.delay 20
+addf debounce.0 servo-thread
+addf debounce.1 servo-thread
+
+net min-home-x => debounce.0.0.in
+net min-home-y => debounce.0.1.in
+net min-home-y2 => debounce.0.2.in
+net max-home-z => debounce.0.3.in
+
+unlinkp joint.0.home-sw-in
+net x-home-sw <= debounce.0.0.out joint.0.home-sw-in
+
+unlinkp joint.1.home-sw-in
+net y-home-sw <= debounce.0.1.out joint.1.home-sw-in
+
+unlinkp joint.2.home-sw-in
+net y2-home-sw <= debounce.0.2.out joint.2.home-sw-in
+
+unlinkp joint.3.home-sw-in
+net z-home-sw <= debounce.0.3.out joint.3.home-sw-in
+
+# - These are done in postgui file...
+#setp ini.0.home_sequence 0
+#setp ini.1.home_sequence -1
+#setp ini.2.home_sequence -1
+#setp ini.3.home_sequence 2
+
+net probe-in => debounce.1.0.in
+unlinkp motion.probe-input
+net probe-in-debounce <= debounce.1.0.out =>  motion.probe-input
+

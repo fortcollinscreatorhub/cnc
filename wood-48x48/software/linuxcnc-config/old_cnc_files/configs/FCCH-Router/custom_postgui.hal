@@ -1,0 +1,41 @@
+# Include your customized HAL commands here
+# The commands in this file are run after the AXIS GUI (including PyVCP panel) starts
+
+sets spindle-at-speed true
+
+net remote-o100 halui.mdi-command-00 <= pyvcp.o100
+#loadrt or2 count=6 #because I have 5 other or functions in my pendant setup
+#addf or2.5 servo-thread
+ 
+#net pendantz input.0.btn-start or2.5.in0
+net remote-o100 pyvcp.o100 #or2.5.in1
+#net touchoffz or2.5.out halui.mdi-command-00
+
+
+net remote-o100 halui.mdi-command-00 <= pyvcp.o100
+net remote-o101 halui.mdi-command-01 <= pyvcp.o101
+net remote-o153 halui.mdi-command-02 <= pyvcp.o153
+net remote-o154 halui.mdi-command-03 <= pyvcp.o154
+net remote-o155 halui.mdi-command-04 <= pyvcp.o155
+net remote-o156 halui.mdi-command-05 <= pyvcp.o156
+net remote-o157 halui.mdi-command-06 <= pyvcp.o157
+net remote-o158 halui.mdi-command-07 <= pyvcp.o158
+net remote-o159 halui.mdi-command-08 <= pyvcp.o159
+net remote-o160 halui.mdi-command-09 <= pyvcp.o160
+
+# 7xCNC adds for pendant
+#loadrt or2 count=6 #because I have 5 other or functions in my pendant setup
+#addf or2.5 servo-thread
+ 
+#net pendantz input.0.btn-start or2.5.in0
+net remote-o100 pyvcp.o100 #or2.5.in1
+#net touchoffz or2.5.out halui.mdi-command-00
+net remote-o101 pyvcp.o101 #or2.5.in1
+net remote-o153 pyvcp.o153 #or2.5.in1
+net remote-o154 pyvcp.o154 #or2.5.in1
+net remote-o155 pyvcp.o155 #or2.5.in1
+net remote-o156 pyvcp.o156 #or2.5.in1
+net remote-o157 pyvcp.o157 #or2.5.in1
+net remote-o158 pyvcp.o158 #or2.5.in1
+net remote-o159 pyvcp.o159 #or2.5.in1
+net remote-o160 pyvcp.o160 #or2.5.in1

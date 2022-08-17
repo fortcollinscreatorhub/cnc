@@ -1,0 +1,10 @@
+# Include your customized HAL commands here
+# This file will not be overwritten when you run stepconf again
+
+#limits debounce to stop false triggers
+loadrt debounce cfg=2 #change  to the number you want
+setp debounce.0.delay 100 #this sets the delay 100 iterations of the base thread
+addf debounce.0 base-thread
+net deb-probe-in debounce.0.0.in <= parport.0.pin-15-in-not
+net probe-in debounce.0.0.out
+net probe-in => motion.probe-input

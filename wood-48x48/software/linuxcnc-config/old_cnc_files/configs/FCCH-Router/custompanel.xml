@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pyvcp>
+<!-- 
+Include your PyVCP panel here.
+The contents of this file will not be overwritten when you run stepconf again.
+-->
+# FCCH added
+<button>
+     <halpin>"o101"</halpin>
+     <text>"Probe X0 Y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o100"</halpin>
+     <text>"Touch Off Z"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o153"</halpin>
+     <text>"Goto G53"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o154"</halpin>
+     <text>"Goto G54 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o155"</halpin>
+     <text>"Goto G55 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o156"</halpin>
+     <text>"Goto G56 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o157"</halpin>
+     <text>"Goto G57 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o158"</halpin>
+     <text>"Goto G58 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
+     <halpin>"o159"</halpin>
+     <text>"Goto G59 x0y0"</text>
+     <font>('fixed',10)</font>
+</button>
+<button>
+     <halpin>"o160"</halpin>
+     <text>"Retract Z"</text>
+     <font>('fixed',10)</font>
+</button>
+</pyvcp>

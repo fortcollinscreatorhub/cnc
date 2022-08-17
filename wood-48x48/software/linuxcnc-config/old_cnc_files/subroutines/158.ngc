@@ -1,0 +1,5 @@
+#<pre>
+o158 sub
+G90 G0 G58 X0 Y0 
+o158 endsub
+#</pre>
