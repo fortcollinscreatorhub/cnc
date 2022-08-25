@@ -1,0 +1,26 @@
+<pre>
+; This is a subroutine for o101.ngc
+; swarren split from o101.ngc 2022/08/24
+
+o102 sub
+    #<tube_id> = #1 ; First parameter
+
+    G10 L20 P1 X0 Y0
+
+    G91 G38.2 X#<tube_id>
+    #<limit1>=#5061
+    G90 G0 X0 
+    G91 G38.2 X[0-#<tube_id>]
+    #<limit2>=#5061
+    G90 G0 X[[#<limit2>+#<limit1>]/2]
+    G10 L20 P1 X0 
+
+    G91 G38.2 Y#<tube_id>
+    #<limit1>=#5062
+    G90 G0 Y0
+    G91 G38.2 Y[0-#<tube_id>]
+    #<limit2>=#5062
+    G90 G0 Y[[#<limit2>+#<limit1>]/2]
+    G10 L20 P1 Y0
+o102 endsub
+</pre>

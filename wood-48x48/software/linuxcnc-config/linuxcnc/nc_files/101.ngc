@@ -1,6 +1,11 @@
 <pre>
-o101 sub
 ; This program was created by Jeff Simpson 08/10/2019
+; swarren modified 2022/08/24
+; - Use M70/M72 to save/restore global state.
+; - Use local variable names to avoid pollution.
+; - Use more explanatory variable names.
+; - Use a sub-routine to avoid copy/paste per pass;
+;   see o102.ngc.
 ;
 ; This G-code probes the center of my copper X0Y0 corner fixture. 
 ; When this program is invoked the tool will be off the center of the 
@@ -10,56 +15,29 @@ o101 sub
 ; The 2nd pass starts from the 1st pass discovered center location
 ; and runs at a slower speed. True tangents and and slower feed rates
 ; are always more accurate, plus it's automated so who cares.
-;
-;------------------ System Startup GCode ------------------
+
+o101 sub
+
+; Configuration Variables
+#<tube_id> = 0.75 ; [Inches]increase or decrease this value depending on the ID of your fixture / object
+#<feedrate1> = 10.0 ; feedrate for 1st pass, set to a feedrate that works for you and you machine.
+#<feedrate2> = 2.5 ; feedrate for 2nd pass, again set it to what works for you.
+
+; System Startup
+M70         ; Save modal state
 G20 G91 G17 ; Inches, Incremental, XY plane
 G43         ; Length compensation on
-;---------------- System Startup GCode End -----------------
-;
-;--------------- Your Adjustable Varibles --------------
-#<_delta> = 0.75 ; [Inches]increase or decrease this value depending on the ID of your fixture / object
-#<_delta-FR1> = 10.0 ; feedrate for 1st pass, set to a feedrate that works for you and you machine.
-#<_delta-FR2> = 4.0 ; feedrate for 2nd pass, again set it to what works for you.
-;--------------------- Varible End ---------------------
-;
-; ------------- 1st Pass - Program Start ---------------
-F#<_delta-FR1>
-G10 L20 P1 X0 Y0
-G91 G38.2 X#<_delta>
-#1001=#5061
-G90 G0 X0 
-G91 G38.2 X[0-#<_delta>]
-#1002=#5061
-G90 G0 X[[#1002+#1001]/2]
-G10 L20 P1 X0 
-G91 G38.2 Y#<_delta>
-#1001=#5062
-G90 G0 Y0
-G91 G38.2 Y[0-#<_delta>]
-#1002=#5062
-G90 G0 Y[[#1002+#1001]/2]
-G10 L20 P1 Y0
-; ------------------ 1st Pass - End --------------------
-;
-; ------------- 2nd Pass - Program Start ---------------
-F#<_delta-FR2>
-G10 L20 P1 X0 Y0
-G91 G38.2 X#<_delta>
-#1001=#5061
-G90 G0 X0 
-G91 G38.2 X[0-#<_delta>]
-#1002=#5061
-G90 G0 X[[#1002+#1001]/2]
-G10 L20 P1 X0 
-G91 G38.2 Y#<_delta>
-#1001=#5062
-G90 G0 Y0
-G91 G38.2 Y[0-#<_delta>]
-#1002=#5062
-G90 G0 Y[[#1002+#1001]/2]
-G10 L20 P1 Y0
-; ------------------ 2nd Pass -  End -------------------
-G90
+
+; 1st Pass
+F#<feedrate1>
+o102 call [#<tube_id>]
+
+; 2nd Pass
+F#<feedrate2>
+o102 call [#<tube_id>]
+
+; System
+M72 ; Restore modal state
+
 o101 endsub
 </pre>
-%
