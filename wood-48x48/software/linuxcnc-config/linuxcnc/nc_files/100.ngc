@@ -1,6 +1,5 @@
 <pre>
-
-o<100> sub
+o100 sub
 
 M70 ; Save modal state
 G91 ; Relative/incremental movements
@@ -21,6 +20,5 @@ G90 ; Absolute movements
 G0 Z0.5 ; Move clear of zero
 M72 ; Restore modal state
 
-o<100> endsub
-
+o100 endsub
 </pre>
