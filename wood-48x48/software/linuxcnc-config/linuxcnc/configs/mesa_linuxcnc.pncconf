@@ -222,8 +222,8 @@
   <property name="halui" type="bool" value="True"/>
   <property name="halui_cmd0" type="string" value="o100 call"/>
   <property name="halui_cmd1" type="string" value="o101 call"/>
-  <property name="halui_cmd10" type="string" value=""/>
-  <property name="halui_cmd11" type="string" value=""/>
+  <property name="halui_cmd10" type="string" value="o103 call"/>
+  <property name="halui_cmd11" type="string" value="o104 call"/>
   <property name="halui_cmd12" type="string" value=""/>
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
@@ -4335,15 +4335,15 @@
   <property name="yhomepos" type="float" value="0.0"/>
   <property name="yhomesearchvel" type="float" value="0.666666666667"/>
   <property name="yhomesequence" type="float" value="1.0"/>
-  <property name="yhomesw" type="float" value="-0.5"/>
-  <property name="yhometandemsw" type="float" value="-0.465"/>
+  <property name="yhomesw" type="float" value="-0.6"/>
+  <property name="yhometandemsw" type="float" value="-0.5"/>
   <property name="yhomevel" type="float" value="0.05"/>
   <property name="yinvertencoder" type="bool" value="False"/>
   <property name="yinvertmotor" type="bool" value="False"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="ymaxacc" type="float" value="15.0"/>
   <property name="ymaxferror" type="float" value="0.5"/>
-  <property name="ymaxlim" type="float" value="49.0"/>
+  <property name="ymaxlim" type="float" value="48.8"/>
   <property name="ymaxoutput" type="float" value="0.0"/>
   <property name="ymaxvel" type="float" value="2.0"/>
   <property name="ymicrostep" type="float" value="5.0"/>
