@@ -1,10 +1,10 @@
 # Include your custom_postgui HAL commands here
 # This file will not be overwritten when you run PNCconf again
 
-setp ini.0.home_sequence 0
-setp ini.1.home_sequence -1
-setp ini.2.home_sequence -1
-setp ini.3.home_sequence 2
+setp ini.0.home_sequence 1
+setp ini.1.home_sequence -2
+setp ini.2.home_sequence -2
+setp ini.3.home_sequence 0
 
 
 #sets spindle-at-speed true

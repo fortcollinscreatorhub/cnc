@@ -4240,7 +4240,7 @@
   <property name="xhomelatchvel" type="float" value="0.0666666666667"/>
   <property name="xhomepos" type="float" value="0.0"/>
   <property name="xhomesearchvel" type="float" value="0.666666666667"/>
-  <property name="xhomesequence" type="float" value="0.0"/>
+  <property name="xhomesequence" type="float" value="1.0"/>
   <property name="xhomesw" type="float" value="-0.5"/>
   <property name="xhometandemsw" type="float" value="0.0"/>
   <property name="xhomevel" type="float" value="0.05"/>
@@ -4334,7 +4334,7 @@
   <property name="yhomelatchvel" type="float" value="0.0666666666667"/>
   <property name="yhomepos" type="float" value="0.0"/>
   <property name="yhomesearchvel" type="float" value="0.666666666667"/>
-  <property name="yhomesequence" type="float" value="1.0"/>
+  <property name="yhomesequence" type="float" value="2.0"/>
   <property name="yhomesw" type="float" value="-0.6"/>
   <property name="yhometandemsw" type="float" value="-0.5"/>
   <property name="yhomevel" type="float" value="0.05"/>
@@ -4343,7 +4343,7 @@
   <property name="ylatchdir" type="int" value="0"/>
   <property name="ymaxacc" type="float" value="15.0"/>
   <property name="ymaxferror" type="float" value="0.5"/>
-  <property name="ymaxlim" type="float" value="48.8"/>
+  <property name="ymaxlim" type="float" value="48.625"/>
   <property name="ymaxoutput" type="float" value="0.0"/>
   <property name="ymaxvel" type="float" value="2.0"/>
   <property name="ymicrostep" type="float" value="5.0"/>
@@ -4432,7 +4432,7 @@
   <property name="zhomelatchvel" type="float" value="0.0666666666667"/>
   <property name="zhomepos" type="float" value="0.0"/>
   <property name="zhomesearchvel" type="float" value="0.316666666667"/>
-  <property name="zhomesequence" type="float" value="2.0"/>
+  <property name="zhomesequence" type="float" value="0.0"/>
   <property name="zhomesw" type="float" value="0.4"/>
   <property name="zhometandemsw" type="float" value="0.0"/>
   <property name="zhomevel" type="float" value="0.05"/>
