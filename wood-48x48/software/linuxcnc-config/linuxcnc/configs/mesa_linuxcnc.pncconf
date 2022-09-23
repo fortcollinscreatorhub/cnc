@@ -245,7 +245,7 @@
   <property name="increments_imperial" type="string" value=".5in .1in .05in .01in .005in .001in .0005in .0001in"/>
   <property name="increments_metric" type="string" value="5mm 1mm .5mm .1mm .05mm .01mm .005mm"/>
   <property name="incrselect" type="bool" value="False"/>
-  <property name="individual_homing" type="bool" value="True"/>
+  <property name="individual_homing" type="bool" value="False"/>
   <property name="ioaddr1" type="string" value="0"/>
   <property name="ioaddr2" type="string" value="1"/>
   <property name="ioaddr3" type="string" value="2"/>
