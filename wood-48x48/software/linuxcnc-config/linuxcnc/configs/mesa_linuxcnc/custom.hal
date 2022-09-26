@@ -36,10 +36,11 @@ unlinkp motion.probe-input
 net probe-in-debounce <= debounce.1.0.out =>  motion.probe-input
 
 # Enable motion only when motor drive voltage is in-spec
-net motor-bus-okay <=  hm2_7i96.0.gpio.010.in_not => motion.enable
+net motor-bus-okay <= hm2_7i96s.0.inm.00.input-10-not => motion.enable
+
 
 # Disable motor drives when turned off in software
 loadrt not names=machinestateinverter
 addf machinestateinverter servo-thread
 net machine-is-on => machinestateinverter.in
-net machine-is-off <= machinestateinverter.out => hm2_7i96.0.ssr.00.out-03
+net machine-is-off <= machinestateinverter.out => hm2_7i96s.0.ssr.00.out-03
