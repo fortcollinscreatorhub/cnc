@@ -1,19 +1,25 @@
 <pre>
+; This G-code probes the Z0 position from above.
+
 o100 sub
 
 M70 ; Save modal state
 G91 ; Relative/incremental movements
 G20 ; Inches
 
-m100 p1; Enable probe input mask
-
+M100 P1; Enable probe input mask
 G38.2 Z-1.0 F10.0 ; Probe down at fast speed to get close
+M100 P0; Disable probe input mask
 F20 G01 Z0.1 ; Up 0.1
 
+M100 P1; Enable probe input mask
 G38.2 Z-1.0 F2.5 ; Probe down at medium speed; more precise
+M100 P0; Disable probe input mask
 F20 G01 Z0.05 ; Up 0.05
 
+M100 P1; Enable probe input mask
 G38.2 Z-1.0 F0.5 ; Probe down at slowest speed; most precise
+M100 P0; Disable probe input mask
 ; Set G54 instead of G92 since that is consistent
 ; with what AXIS "Touch Off" buttons do
 G10 L20 P1 Z0.125 ; Set G54 Z offset so current Z is 0.125
@@ -21,8 +27,6 @@ G10 L20 P1 Z0.125 ; Set G54 Z offset so current Z is 0.125
 G90 ; Absolute movements
 G54 ; Select the co-ordinate system just zero'd
 G0 Z0.5 ; Move clear of zero
-
-m100 p0; Disable probe input mask
 
 M72 ; Restore modal state
 
