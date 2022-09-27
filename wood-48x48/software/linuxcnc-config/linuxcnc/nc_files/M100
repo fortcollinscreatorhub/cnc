@@ -1,0 +1,13 @@
+#!/usr/bin/python2
+
+## set probe-mask pin to true or falso based on argument
+import sys
+import os
+
+n=float(sys.argv[1])
+
+if n>0:
+	os.system("halcmd sets probe-mask TRUE")
+else:
+	os.system("halcmd sets probe-mask FALSE")
+

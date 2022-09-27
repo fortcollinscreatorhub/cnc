@@ -1,9 +1,13 @@
 <pre>
 o103 sub
 
+m101 ; Ask user about the probe diameter
+
 M70 ; Save modal state
 G91 ; Relative/incremental movements
 G20 ; Inches
+
+m100 p1; Enable probe input mask
 
 G38.2 X1.0 F10.0 ; Probe right at fast speed to get close
 F20 G01 X-0.1 ; Left 0.1
@@ -14,11 +18,14 @@ F20 G01 X-0.05 ; Left 0.05
 G38.2 X1.0 F0.5 ; Probe right at slowest speed; most precise
 ; Set G54 instead of G92 since that is consistent
 ; with what AXIS "Touch Off" buttons do
-G10 L20 P1 X-0.125 ; Set G54 X offset so current X is -0.125
+G10 L20 P1 X[-0.125 - #<_hal[probe-radius]> ] ; Set G54 X offset so current X is -0.125
 
 G90 ; Absolute movements
 G54 ; Select the co-ordinate system just zero'd
 G0 X-0.5 ; Move clear of zero
+
+m100 p0; Disable probe input mask
+
 M72 ; Restore modal state
 
 o103 endsub

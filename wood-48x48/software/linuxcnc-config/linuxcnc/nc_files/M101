@@ -1,0 +1,19 @@
+#!/usr/bin/python2
+
+## Get floating point value from user (Probe Diameter)
+## set hal pin probe-radius to half of that value
+
+import os
+
+from Tkinter import *
+import tkSimpleDialog
+
+root=Tk()
+root.withdraw()
+
+bitdiam=tkSimpleDialog.askfloat("Enter Value","Probe Diameter (inches)",
+				parent=root,initialvalue=0.250,
+				minvalue=0.0,maxvalue=1.0)
+if bitdiam is None:
+	os._exit(-1)
+os.system("halcmd sets probe-radius %.4f" % float(bitdiam/2.0))

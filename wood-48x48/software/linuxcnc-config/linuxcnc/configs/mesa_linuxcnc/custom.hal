@@ -1,4 +1,3 @@
-
 # Include your custom HAL commands here
 # This file will not be overwritten when you run PNCconf again
 
@@ -33,11 +32,25 @@ net z-home-sw <= debounce.0.3.out joint.3.home-sw-in
 
 net probe-in => debounce.1.0.in
 unlinkp motion.probe-input
-net probe-in-debounce <= debounce.1.0.out =>  motion.probe-input
+net probe-in-debounce <= debounce.1.0.out
+
+# AND probe-input with probe-mask to create probe-masked
+loadrt and2 names=probemasker
+addf probemasker servo-thread
+
+net probe-mask => probemasker.in0
+net probe-in-debounce => probemasker.in1
+net probe-masked <= probemasker.out => motion.probe-input
+
+# Set probe disabled at startup
+sets probe-mask false
+
+# New signal to hold the value of the probe bit radius
+newsig probe-radius float
+sets probe-radius 0.125
 
 # Enable motion only when motor drive voltage is in-spec
 net motor-bus-okay <= hm2_7i96s.0.inm.00.input-10-not => motion.enable
-
 
 # Disable motor drives when turned off in software
 loadrt not names=machinestateinverter
