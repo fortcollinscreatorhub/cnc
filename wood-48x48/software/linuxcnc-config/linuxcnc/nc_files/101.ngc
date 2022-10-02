@@ -21,7 +21,7 @@ o101 sub
 ; Configuration Variables
 #<tube_id> = 0.75 ; [Inches]increase or decrease this value depending on the ID of your fixture / object
 #<feedrate1> = 10.0 ; feedrate for 1st pass, set to a feedrate that works for you and you machine.
-#<feedrate2> = 2.5 ; feedrate for 2nd pass, again set it to what works for you.
+#<feedrate2> = 3.75 ; feedrate for 2nd pass, again set it to what works for you.
 
 ; System Startup
 M70         ; Save modal state
