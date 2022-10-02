@@ -34,11 +34,8 @@ G01 Z[-#<probe_dir> * #<slow_backoff>] F[#<backoff_rate>]; Back off
 
 ; Set G54 instead of G92 since that is consistent
 ; with what AXIS "Touch Off" buttons do
-; Set G54 offset so current co-ordinate is:
-G10 L20 P1 Z[-#<probe_dir> * [#<probe_bar_thick> + #<slow_backoff> + #<bit_offset>]]
-
-G90 ; Absolute movements
-G54 ; Select the co-ordinate system just zero'd
+; Set current G5x offset so current co-ordinate is:
+G10 L20 P0 Z[-#<probe_dir> * [#<probe_bar_thick> + #<slow_backoff> + #<bit_offset>]]
 
 M72 ; Restore modal state
 

@@ -5,7 +5,7 @@
 o102 sub
     #<tube_id> = #1 ; First parameter
 
-    G10 L20 P1 X0 Y0
+    G10 L20 P0 X0 Y0
 
     M100 P1; Enable probe input mask
     G91 G38.2 X#<tube_id>
@@ -17,7 +17,7 @@ o102 sub
     M100 P0; Disable probe input mask
     #<limit2>=#5061
     G90 G0 X[[#<limit2>+#<limit1>]/2]
-    G10 L20 P1 X0 
+    G10 L20 P0 X0 
 
     M100 P1; Enable probe input mask
     G91 G38.2 Y#<tube_id>
@@ -29,6 +29,6 @@ o102 sub
     M100 P0; Disable probe input mask
     #<limit2>=#5062
     G90 G0 Y[[#<limit2>+#<limit1>]/2]
-    G10 L20 P1 Y0
+    G10 L20 P0 Y0
 o102 endsub
 </pre>
