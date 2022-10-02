@@ -30,6 +30,7 @@ net remote-o159 halui.mdi-command-08 <= pyvcp.o159
 net remote-o160 halui.mdi-command-09 <= pyvcp.o160
 net remote-o103 halui.mdi-command-10 <= pyvcp.o103
 net remote-o104 halui.mdi-command-11 <= pyvcp.o104
+net remote-o105 halui.mdi-command-12 <= pyvcp.o105
 
 # 7xCNC adds for pendant
 #loadrt or2 count=6 #because I have 5 other or functions in my pendant setup
@@ -49,4 +50,5 @@ net remote-o159 pyvcp.o159 #or2.5.in1
 net remote-o160 pyvcp.o160 #or2.5.in1
 net remote-o103 pyvcp.o103 #or2.5.in1
 net remote-o104 pyvcp.o104 #or2.5.in1
+net remote-o105 pyvcp.o105 #or2.5.in1
 

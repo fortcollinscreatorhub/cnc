@@ -1,0 +1,22 @@
+<pre>
+; This G-code resets all modal state to sane defaults
+
+o105 sub
+
+; Relative linear move by X0
+; Sets G01 as mode for any subsequent axis cmds w/o G00/G01
+G91 G01 X0 F1
+
+G17 ; XY plane
+G20 ; Inches
+G40 ; Cutter compensation off
+G49 ; Cancel tool length compensation
+G54 ; Select co-ordinate system 1
+G61 ; Exact path mode
+G90 ; Absolute movement
+G94 ; Feed rate is units per minute
+F10 ; Feed rate 10 in/s
+M61 Q0 ; No current tool loaded
+
+o105 endsub
+</pre>

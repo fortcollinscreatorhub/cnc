@@ -224,7 +224,7 @@
   <property name="halui_cmd1" type="string" value="o101 call"/>
   <property name="halui_cmd10" type="string" value="o103 call"/>
   <property name="halui_cmd11" type="string" value="o104 call"/>
-  <property name="halui_cmd12" type="string" value=""/>
+  <property name="halui_cmd12" type="string" value="o105 call"/>
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
   <property name="halui_cmd2" type="string" value="o153 call"/>
