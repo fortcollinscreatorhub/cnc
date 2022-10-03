@@ -14,7 +14,10 @@ G49 ; Cancel tool length compensation
 G54 ; Select co-ordinate system 1
 G61 ; Exact path mode
 G90 ; Absolute movement
+G91.1 ; Incremental distance mode for I, J & K offsets
 G94 ; Feed rate is units per minute
+G98 ; Retract to the position that axis was in just before this
+    ; series of one or more contiguous canned cycles was started
 F10 ; Feed rate 10 in/s
 M61 Q0 ; No current tool loaded
 
