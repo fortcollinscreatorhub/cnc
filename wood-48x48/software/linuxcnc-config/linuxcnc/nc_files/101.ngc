@@ -31,10 +31,20 @@ G43         ; Length compensation on
 ; 1st Pass
 F#<feedrate1>
 o102 call [#<tube_id>]
+O110 if [#5070 NE 1]
+    M72 ; Restore modal state
+    ; MSG, Probing failed!
+    O101 return
+O110 endif
 
 ; 2nd Pass
 F#<feedrate2>
 o102 call [#<tube_id>]
+O111 if [#5070 NE 1]
+    M72 ; Restore modal state
+    ; MSG, Probing failed!
+    O101 return
+O111 endif
 
 ; System
 M72 ; Restore modal state

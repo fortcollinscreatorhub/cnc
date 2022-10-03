@@ -23,13 +23,23 @@ G91 ; Relative/incremental movements
 G20 ; Inches
 
 M100 P1; Enable probe input mask
-G38.2 Y[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>] ; Probe at fast speed to get close
+G38.3 Y[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>] ; Probe at fast speed to get close
 M100 P0; Disable probe input mask
+O110 if [#5070 NE 1]
+    M72 ; Restore modal state
+    ; MSG, Probing failed!
+    O103 return
+O110 endif
 G01 Y[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]; Back off
 
 M100 P1; Enable probe input mask
-G38.2 Y[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>] ; Probe at slow speed; more precise
+G38.3 Y[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>] ; Probe at slow speed; more precise
 M100 P0; Disable probe input mask
+O111 if [#5070 NE 1]
+    M72 ; Restore modal state
+    ; MSG, Probing failed!
+    O103 return
+O111 endif
 G01 Y[-#<probe_dir> * #<slow_backoff>] F[#<backoff_rate>]; Back off
 
 ; Set G54 instead of G92 since that is consistent

@@ -8,25 +8,41 @@ o102 sub
     G10 L20 P0 X0 Y0
 
     M100 P1; Enable probe input mask
-    G91 G38.2 X#<tube_id>
+    G91 G38.3 X#<tube_id>
     M100 P0; Disable probe input mask
+    O110 if [#5070 NE 1]
+        ; MSG, Probing failed!
+        O102 return
+    O110 endif
     #<limit1>=#5061
     G90 G0 X0 
     M100 P1; Enable probe input mask
-    G91 G38.2 X[0-#<tube_id>]
+    G91 G38.3 X[0-#<tube_id>]
     M100 P0; Disable probe input mask
+    O111 if [#5070 NE 1]
+        ; MSG, Probing failed!
+        O102 return
+    O111 endif
     #<limit2>=#5061
     G90 G0 X[[#<limit2>+#<limit1>]/2]
     G10 L20 P0 X0 
 
     M100 P1; Enable probe input mask
-    G91 G38.2 Y#<tube_id>
+    G91 G38.3 Y#<tube_id>
     M100 P0; Disable probe input mask
+    O112 if [#5070 NE 1]
+        ; MSG, Probing failed!
+        O102 return
+    O112 endif
     #<limit1>=#5062
     G90 G0 Y0
     M100 P1; Enable probe input mask
-    G91 G38.2 Y[0-#<tube_id>]
+    G91 G38.3 Y[0-#<tube_id>]
     M100 P0; Disable probe input mask
+    O113 if [#5070 NE 1]
+        ; MSG, Probing failed!
+        O102 return
+    O113 endif
     #<limit2>=#5062
     G90 G0 Y[[#<limit2>+#<limit1>]/2]
     G10 L20 P0 Y0
