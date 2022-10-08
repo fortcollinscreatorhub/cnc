@@ -1,6 +1,6 @@
 ; This G-code probes the X0 position from left.
 
-o103 sub
+o<probe-x-from-left> sub
 
 ; Configuration Variables
 #<probe_max_distance> = 1.0 ; In
@@ -24,21 +24,21 @@ G20 ; Inches
 M100 P1; Enable probe input mask
 G38.3 X[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>] ; Probe at fast speed to get close
 M100 P0; Disable probe input mask
-O110 if [#5070 NE 1]
+o<probe-x-from-left-if1> if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O103 return
-O110 endif
+    o<probe-x-from-left> return
+o<probe-x-from-left-if1> endif
 G01 X[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]; Back off
 
 M100 P1; Enable probe input mask
 G38.3 X[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>] ; Probe at slow speed; more precise
 M100 P0; Disable probe input mask
-O111 if [#5070 NE 1]
+o<probe-x-from-left-if2> if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O103 return
-O111 endif
+    o<probe-x-from-left> return
+o<probe-x-from-left-if2> endif
 G01 X[-#<probe_dir> * #<slow_backoff>] F[#<backoff_rate>]; Back off
 
 ; Set G54 instead of G92 since that is consistent
@@ -48,4 +48,4 @@ G10 L20 P0 X[-#<probe_dir> * [#<probe_bar_thick> + #<slow_backoff> + #<bit_offse
 
 M72 ; Restore modal state
 
-o103 endsub
+o<probe-x-from-left> endsub

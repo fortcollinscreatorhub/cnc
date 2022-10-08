@@ -15,7 +15,7 @@
 ; and runs at a slower speed. True tangents and and slower feed rates
 ; are always more accurate, plus it's automated so who cares.
 
-o101 sub
+o<probe-xy-in-pipe> sub
 
 ; Configuration Variables
 #<tube_id> = 0.75 ; [Inches]increase or decrease this value depending on the ID of your fixture / object
@@ -29,23 +29,23 @@ G43         ; Length compensation on
 
 ; 1st Pass
 F#<feedrate1>
-o102 call [#<tube_id>]
-O110 if [#5070 NE 1]
+o<probe-xy-in-pipe-sub> call [#<tube_id>]
+o<probe-xy-in-pipe-if1> if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O101 return
-O110 endif
+    o<probe-xy-in-pipe> return
+o<probe-xy-in-pipe-if1> endif
 
 ; 2nd Pass
 F#<feedrate2>
-o102 call [#<tube_id>]
-O111 if [#5070 NE 1]
+o<probe-xy-in-pipe-sub> call [#<tube_id>]
+o<probe-xy-in-pipe-if2> if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O101 return
-O111 endif
+    o<probe-xy-in-pipe> return
+o<probe-xy-in-pipe-if2> endif
 
 ; System
 M72 ; Restore modal state
 
-o101 endsub
+o<probe-xy-in-pipe> endsub

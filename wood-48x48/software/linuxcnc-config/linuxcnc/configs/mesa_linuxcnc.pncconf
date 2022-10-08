@@ -220,21 +220,21 @@
   <property name="halsteppersignames" type="eval" value="[]"/>
   <property name="haltppwmoutputsignames" type="eval" value="[]"/>
   <property name="halui" type="bool" value="True"/>
-  <property name="halui_cmd0" type="string" value="o100 call"/>
-  <property name="halui_cmd1" type="string" value="o101 call"/>
-  <property name="halui_cmd10" type="string" value="o103 call"/>
-  <property name="halui_cmd11" type="string" value="o104 call"/>
-  <property name="halui_cmd12" type="string" value="o105 call"/>
+  <property name="halui_cmd0" type="string" value="o&lt;probe-z-from-above&gt; call"/>
+  <property name="halui_cmd1" type="string" value="o&lt;probe-xy-in-pipe&gt; call"/>
+  <property name="halui_cmd10" type="string" value="o&lt;probe-x-from-left&gt; call"/>
+  <property name="halui_cmd11" type="string" value="o&lt;probe-y-from-front&gt; call"/>
+  <property name="halui_cmd12" type="string" value="o&lt;set-modal-defaults&gt; call"/>
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
-  <property name="halui_cmd2" type="string" value="o153 call"/>
-  <property name="halui_cmd3" type="string" value="o154 call"/>
-  <property name="halui_cmd4" type="string" value="o155 call"/>
-  <property name="halui_cmd5" type="string" value="o156 call"/>
-  <property name="halui_cmd6" type="string" value="o157 call"/>
-  <property name="halui_cmd7" type="string" value="o158 call"/>
-  <property name="halui_cmd8" type="string" value="o159 call"/>
-  <property name="halui_cmd9" type="string" value="o160 call"/>
+  <property name="halui_cmd2" type="string" value="o&lt;g53-g0-xy0&gt; call"/>
+  <property name="halui_cmd3" type="string" value="o&lt;g54-g0-xy0&gt; call"/>
+  <property name="halui_cmd4" type="string" value="o&lt;g55-g0-xy0&gt; call"/>
+  <property name="halui_cmd5" type="string" value="o&lt;g56-g0-xy0&gt; call"/>
+  <property name="halui_cmd6" type="string" value="o&lt;g57-g0-xy0&gt; call"/>
+  <property name="halui_cmd7" type="string" value="o&lt;g58-g0-xy0&gt; call"/>
+  <property name="halui_cmd8" type="string" value="o&lt;g59-g0-xy0&gt; call"/>
+  <property name="halui_cmd9" type="string" value="o&lt;g53-g0-z0&gt; call"/>
   <property name="help" type="string" value="help-realtime.txt"/>
   <property name="homeboth" type="bool" value="False"/>
   <property name="homeindex" type="bool" value="False"/>

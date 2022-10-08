@@ -1,7 +1,7 @@
 ; This is a subroutine for o101.ngc
 ; swarren split from o101.ngc 2022/08/24
 
-o102 sub
+o<probe-xy-in-pipe-sub> sub
     #<tube_id> = #1 ; First parameter
 
     G10 L20 P0 X0 Y0
@@ -9,19 +9,19 @@ o102 sub
     M100 P1; Enable probe input mask
     G91 G38.3 X#<tube_id>
     M100 P0; Disable probe input mask
-    O110 if [#5070 NE 1]
+    o<probe-xy-in-pipe-sub-if1> if [#5070 NE 1]
         ; MSG, Probing failed!
         O102 return
-    O110 endif
+    o<probe-xy-in-pipe-sub-if1> endif
     #<limit1>=#5061
     G90 G0 X0 
     M100 P1; Enable probe input mask
     G91 G38.3 X[0-#<tube_id>]
     M100 P0; Disable probe input mask
-    O111 if [#5070 NE 1]
+    o<probe-xy-in-pipe-sub-if2> if [#5070 NE 1]
         ; MSG, Probing failed!
         O102 return
-    O111 endif
+    o<probe-xy-in-pipe-sub-if2> endif
     #<limit2>=#5061
     G90 G0 X[[#<limit2>+#<limit1>]/2]
     G10 L20 P0 X0 
@@ -29,20 +29,20 @@ o102 sub
     M100 P1; Enable probe input mask
     G91 G38.3 Y#<tube_id>
     M100 P0; Disable probe input mask
-    O112 if [#5070 NE 1]
+    o<probe-xy-in-pipe-sub-if3> if [#5070 NE 1]
         ; MSG, Probing failed!
         O102 return
-    O112 endif
+    o<probe-xy-in-pipe-sub-if3> endif
     #<limit1>=#5062
     G90 G0 Y0
     M100 P1; Enable probe input mask
     G91 G38.3 Y[0-#<tube_id>]
     M100 P0; Disable probe input mask
-    O113 if [#5070 NE 1]
+    o<probe-xy-in-pipe-sub-if4> if [#5070 NE 1]
         ; MSG, Probing failed!
         O102 return
-    O113 endif
+    o<probe-xy-in-pipe-sub-if4> endif
     #<limit2>=#5062
     G90 G0 Y[[#<limit2>+#<limit1>]/2]
     G10 L20 P0 Y0
-o102 endsub
+o<probe-xy-in-pipe-sub> endsub

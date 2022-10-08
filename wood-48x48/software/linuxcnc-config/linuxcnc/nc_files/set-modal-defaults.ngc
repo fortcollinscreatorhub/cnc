@@ -1,6 +1,6 @@
 ; This G-code resets all modal state to sane defaults
 
-o105 sub
+o<set-modal-defaults> sub
 
 ; Relative linear move by X0
 ; Sets G01 as mode for any subsequent axis cmds w/o G00/G01
@@ -20,4 +20,4 @@ G98 ; Retract to the position that axis was in just before this
 F10 ; Feed rate 10 in/s
 M61 Q0 ; No current tool loaded
 
-o105 endsub
+o<set-modal-defaults> endsub
