@@ -6,78 +6,79 @@ The contents of this file will not be overwritten when you run stepconf again.
 -->
 # FCCH added
 <button>
-     <halpin>"o105"</halpin>
+     <halpin>"fcch-btn-set-modal-defaults"</halpin>
      <text>"Set modal\ndefaults"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o100"</halpin>
+     <halpin>"fcch-btn-probe-z-from-above"</halpin>
      <text>"Probe Z\nfrom above"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o103"</halpin>
+     <halpin>"fcch-btn-probe-x-from-left"</halpin>
      <text>"Probe X\nfrom left"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o104"</halpin>
+     <halpin>"fcch-btn-probe-y-from-front"</halpin>
      <text>"Probe Y\nfrom front"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o101"</halpin>
+     <halpin>"fcch-btn-probe-xy-in-pipe"</halpin>
      <text>"Probe XY\nin pipe"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o153"</halpin>
+     <halpin>"fcch-btn-g53-g0-xy0"</halpin>
      <text>"Goto G53"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o154"</halpin>
+     <halpin>"fcch-btn-g54-g0-xy0"</halpin>
      <text>"Goto G54 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o155"</halpin>
+     <halpin>"fcch-btn-g55-g0-xy0"</halpin>
      <text>"Goto G55 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o156"</halpin>
+     <halpin>"fcch-btn-g56-g0-xy0"</halpin>
      <text>"Goto G56 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o157"</halpin>
+     <halpin>"fcch-btn-g57-g0-xy0"</halpin>
      <text>"Goto G57 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o158"</halpin>
+     <halpin>"fcch-btn-g58-g0-xy0"</halpin>
      <text>"Goto G58 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
-     <halpin>"o159"</halpin>
+     <halpin>"fcch-btn-g59-g0-xy0"</halpin>
      <text>"Goto G59 x0y0"</text>
      <font>('fixed',10)</font>
 </button>
+
 <button>
-     <halpin>"o160"</halpin>
+     <halpin>"fcch-btn-g53-g0-z0"</halpin>
      <text>"Retract Z"</text>
      <font>('fixed',10)</font>
 </button>

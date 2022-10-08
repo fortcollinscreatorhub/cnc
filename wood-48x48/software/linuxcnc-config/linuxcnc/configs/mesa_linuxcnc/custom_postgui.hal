@@ -6,16 +6,16 @@ setp ini.1.home_sequence -2
 setp ini.2.home_sequence -2
 setp ini.3.home_sequence 0
 
-net remote-o100 halui.mdi-command-00 <= pyvcp.o100
-net remote-o101 halui.mdi-command-01 <= pyvcp.o101
-net remote-o153 halui.mdi-command-02 <= pyvcp.o153
-net remote-o154 halui.mdi-command-03 <= pyvcp.o154
-net remote-o155 halui.mdi-command-04 <= pyvcp.o155
-net remote-o156 halui.mdi-command-05 <= pyvcp.o156
-net remote-o157 halui.mdi-command-06 <= pyvcp.o157
-net remote-o158 halui.mdi-command-07 <= pyvcp.o158
-net remote-o159 halui.mdi-command-08 <= pyvcp.o159
-net remote-o160 halui.mdi-command-09 <= pyvcp.o160
-net remote-o103 halui.mdi-command-10 <= pyvcp.o103
-net remote-o104 halui.mdi-command-11 <= pyvcp.o104
-net remote-o105 halui.mdi-command-12 <= pyvcp.o105
+net fcch-sig-set-modal-defaults halui.mdi-command-12 <= pyvcp.fcch-btn-set-modal-defaults
+net fcch-sig-probe-z-from-above halui.mdi-command-00 <= pyvcp.fcch-btn-probe-z-from-above
+net fcch-sig-probe-x-from-left  halui.mdi-command-10 <= pyvcp.fcch-btn-probe-x-from-left
+net fcch-sig-probe-y-from-front halui.mdi-command-11 <= pyvcp.fcch-btn-probe-y-from-front
+net fcch-sig-probe-xy-in-pipe   halui.mdi-command-01 <= pyvcp.fcch-btn-probe-xy-in-pipe
+net fcch-sig-g53-g0-z0          halui.mdi-command-09 <= pyvcp.fcch-btn-g53-g0-z0
+net fcch-sig-g53-g0-xy0         halui.mdi-command-02 <= pyvcp.fcch-btn-g53-g0-xy0
+net fcch-sig-g54-g0-xy0         halui.mdi-command-03 <= pyvcp.fcch-btn-g54-g0-xy0
+net fcch-sig-g55-g0-xy0         halui.mdi-command-04 <= pyvcp.fcch-btn-g55-g0-xy0
+net fcch-sig-g56-g0-xy0         halui.mdi-command-05 <= pyvcp.fcch-btn-g56-g0-xy0
+net fcch-sig-g57-g0-xy0         halui.mdi-command-06 <= pyvcp.fcch-btn-g57-g0-xy0
+net fcch-sig-g58-g0-xy0         halui.mdi-command-07 <= pyvcp.fcch-btn-g58-g0-xy0
+net fcch-sig-g59-g0-xy0         halui.mdi-command-08 <= pyvcp.fcch-btn-g59-g0-xy0
