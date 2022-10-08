@@ -28,7 +28,7 @@ M100 P0; Disable probe input mask
 O110 if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O103 return
+    O104 return
 O110 endif
 G01 Y[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]; Back off
 
@@ -38,7 +38,7 @@ M100 P0; Disable probe input mask
 O111 if [#5070 NE 1]
     M72 ; Restore modal state
     ; MSG, Probing failed!
-    O103 return
+    O104 return
 O111 endif
 G01 Y[-#<probe_dir> * #<slow_backoff>] F[#<backoff_rate>]; Back off
 
