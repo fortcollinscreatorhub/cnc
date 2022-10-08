@@ -36,6 +36,12 @@ The contents of this file will not be overwritten when you run stepconf again.
 </button>
 
 <button>
+     <halpin>"fcch-btn-g53-g0-z0"</halpin>
+     <text>"Retract Z\n(Goto G53 z0)"</text>
+     <font>('fixed',10)</font>
+</button>
+
+<button>
      <halpin>"fcch-btn-g53-g0-xy0"</halpin>
      <text>"Goto G53 x0 y0"</text>
      <font>('fixed',10)</font>
@@ -74,12 +80,6 @@ The contents of this file will not be overwritten when you run stepconf again.
 <button>
      <halpin>"fcch-btn-g59-g0-xy0"</halpin>
      <text>"Goto G59 x0 y0"</text>
-     <font>('fixed',10)</font>
-</button>
-
-<button>
-     <halpin>"fcch-btn-g53-g0-z0"</halpin>
-     <text>"Retract Z\n(Goto G53 z0)"</text>
      <font>('fixed',10)</font>
 </button>
 </pyvcp>
