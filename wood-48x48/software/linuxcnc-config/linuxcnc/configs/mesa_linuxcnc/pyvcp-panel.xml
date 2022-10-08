@@ -37,49 +37,49 @@ The contents of this file will not be overwritten when you run stepconf again.
 
 <button>
      <halpin>"fcch-btn-g53-g0-xy0"</halpin>
-     <text>"Goto G53"</text>
+     <text>"Goto G53 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g54-g0-xy0"</halpin>
-     <text>"Goto G54 x0y0"</text>
+     <text>"Goto G54 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g55-g0-xy0"</halpin>
-     <text>"Goto G55 x0y0"</text>
+     <text>"Goto G55 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g56-g0-xy0"</halpin>
-     <text>"Goto G56 x0y0"</text>
+     <text>"Goto G56 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g57-g0-xy0"</halpin>
-     <text>"Goto G57 x0y0"</text>
+     <text>"Goto G57 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g58-g0-xy0"</halpin>
-     <text>"Goto G58 x0y0"</text>
+     <text>"Goto G58 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g59-g0-xy0"</halpin>
-     <text>"Goto G59 x0y0"</text>
+     <text>"Goto G59 x0 y0"</text>
      <font>('fixed',10)</font>
 </button>
 
 <button>
      <halpin>"fcch-btn-g53-g0-z0"</halpin>
-     <text>"Retract Z"</text>
+     <text>"Retract Z\n(Goto G53 z0)"</text>
      <font>('fixed',10)</font>
 </button>
 </pyvcp>
