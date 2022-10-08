@@ -1,4 +1,3 @@
-<pre>
 ; This G-code probes the X0 position from left.
 
 o103 sub
@@ -50,4 +49,3 @@ G10 L20 P0 X[-#<probe_dir> * [#<probe_bar_thick> + #<slow_backoff> + #<bit_offse
 M72 ; Restore modal state
 
 o103 endsub
-</pre>

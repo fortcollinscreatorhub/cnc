@@ -1,4 +1,3 @@
-<pre>
 ; This G-code resets all modal state to sane defaults
 
 o105 sub
@@ -22,4 +21,3 @@ F10 ; Feed rate 10 in/s
 M61 Q0 ; No current tool loaded
 
 o105 endsub
-</pre>
