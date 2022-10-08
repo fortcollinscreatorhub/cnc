@@ -6,18 +6,6 @@ setp ini.1.home_sequence -2
 setp ini.2.home_sequence -2
 setp ini.3.home_sequence 0
 
-
-#sets spindle-at-speed true
-
-net remote-o100 halui.mdi-command-00 <= pyvcp.o100
-#loadrt or2 count=6 #because I have 5 other or functions in my pendant setup
-#addf or2.5 servo-thread
- 
-#net pendantz input.0.btn-start or2.5.in0
-net remote-o100 pyvcp.o100 #or2.5.in1
-#net touchoffz or2.5.out halui.mdi-command-00
-
-
 net remote-o100 halui.mdi-command-00 <= pyvcp.o100
 net remote-o101 halui.mdi-command-01 <= pyvcp.o101
 net remote-o153 halui.mdi-command-02 <= pyvcp.o153
@@ -31,24 +19,3 @@ net remote-o160 halui.mdi-command-09 <= pyvcp.o160
 net remote-o103 halui.mdi-command-10 <= pyvcp.o103
 net remote-o104 halui.mdi-command-11 <= pyvcp.o104
 net remote-o105 halui.mdi-command-12 <= pyvcp.o105
-
-# 7xCNC adds for pendant
-#loadrt or2 count=6 #because I have 5 other or functions in my pendant setup
-#addf or2.5 servo-thread
- 
-#net pendantz input.0.btn-start or2.5.in0
-net remote-o100 pyvcp.o100 #or2.5.in1
-#net touchoffz or2.5.out halui.mdi-command-00
-net remote-o101 pyvcp.o101 #or2.5.in1
-net remote-o153 pyvcp.o153 #or2.5.in1
-net remote-o154 pyvcp.o154 #or2.5.in1
-net remote-o155 pyvcp.o155 #or2.5.in1
-net remote-o156 pyvcp.o156 #or2.5.in1
-net remote-o157 pyvcp.o157 #or2.5.in1
-net remote-o158 pyvcp.o158 #or2.5.in1
-net remote-o159 pyvcp.o159 #or2.5.in1
-net remote-o160 pyvcp.o160 #or2.5.in1
-net remote-o103 pyvcp.o103 #or2.5.in1
-net remote-o104 pyvcp.o104 #or2.5.in1
-net remote-o105 pyvcp.o105 #or2.5.in1
-
