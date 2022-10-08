@@ -4,7 +4,7 @@
 loadrt debounce cfg=4,1
 setp debounce.0.delay 100
 addf debounce.0 servo-thread
-setp debounce.1.delay 20
+setp debounce.1.delay 2
 addf debounce.1 servo-thread
 
 net min-home-x => debounce.0.0.in
