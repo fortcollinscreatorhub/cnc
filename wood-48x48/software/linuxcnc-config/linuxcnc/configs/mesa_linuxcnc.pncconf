@@ -220,10 +220,10 @@
   <property name="halsteppersignames" type="eval" value="[]"/>
   <property name="haltppwmoutputsignames" type="eval" value="[]"/>
   <property name="halui" type="bool" value="True"/>
-  <property name="halui_cmd0" type="string" value="o&lt;probe-z-from-above&gt; call"/>
+  <property name="halui_cmd0" type="string" value="o&lt;probe-common&gt; call [2] [-1]"/>
   <property name="halui_cmd1" type="string" value="o&lt;probe-xy-in-pipe&gt; call"/>
-  <property name="halui_cmd10" type="string" value="o&lt;probe-x-from-left&gt; call"/>
-  <property name="halui_cmd11" type="string" value="o&lt;probe-y-from-front&gt; call"/>
+  <property name="halui_cmd10" type="string" value="o&lt;probe-common&gt; call [0] [1]"/>
+  <property name="halui_cmd11" type="string" value="o&lt;probe-common&gt; call [1] [1]"/>
   <property name="halui_cmd12" type="string" value="o&lt;set-modal-defaults&gt; call"/>
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
