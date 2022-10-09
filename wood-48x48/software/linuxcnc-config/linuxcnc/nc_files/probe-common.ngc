@@ -1,0 +1,118 @@
+; This is a common subroutine for probing X, Y, or Z.
+
+o<probe-common> sub
+
+; Convert subroute parameters to named local parameters
+#<axis>      = #1 ; X=0, Y=1, Z=2
+#<probe_dir> = #2 ; 1=probe increasing, -1=probe decreasing
+
+; Configuration
+#<probe_max_distance> = 1.0 ; In
+#<backoff_rate> = 20.0 ; In/s
+#<fast_backoff> = 0.05 ; In
+#<slow_probe_rate_x> = 3.75 ; In/s
+#<slow_probe_rate_y> = 3.75 ; In/s
+#<slow_probe_rate_z> = 1.5 ; In/s
+#<probe_bar_thick> = 0.125 ; In
+
+; Calculated locals
+o<probe-common-calc-axis> if [ #<axis> EQ 0 ]
+    #<slow_probe_rate> = #<slow_probe_rate_x>
+    M101 ; Ask user bit diameter
+    #<bit_offset> = #<_hal[probe-radius]> ; In
+o<probe-common-calc-axis> elseif [ #<axis> EQ 1 ]
+    #<slow_probe_rate> = #<slow_probe_rate_y>
+    M101 ; Ask user bit diameter
+    #<bit_offset> = #<_hal[probe-radius]> ; In
+o<probe-common-calc-axis> elseif [ #<axis> EQ 2 ]
+    #<slow_probe_rate> = #<slow_probe_rate_z>
+    #<bit_offset> = 0
+o<probe-common-calc-axis> else
+    (msg,Invalid axis #<axis>)
+    o<probe-common> return
+o<probe-common-calc-axis> endif
+#<fast_probe_rate> = [#<slow_probe_rate> * 4] ; In/s
+o<probe-common-calc-probe_dir> if [ #<probe_dir> EQ 1 ]
+    ; OK - increasing
+o<probe-common-calc-probe_dir> elseif [ #<probe_dir> EQ -1 ]
+    ; OK - decreasing
+o<probe-common-calc-probe_dir> else
+    (msg,Invalid probe_dir #<probe_dir>)
+    o<probe-common> return
+o<probe-common-calc-probe_dir> endif
+
+; Program setup
+G30.1 ; Save current position
+M70 ; Save modal state
+G20 ; Inches
+G91 ; Relative/incremental movements
+
+; Probe at fast speed to get close
+M100 P1; Enable probe input mask
+o<probe-common-probe-fast> if [ #<axis> EQ 0 ]
+    G38.3 X[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>]
+o<probe-common-probe-fast> elseif [ #<axis> EQ 1 ]
+    G38.3 Y[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>]
+o<probe-common-probe-fast> elseif [ #<axis> EQ 2 ]
+    G38.3 Z[#<probe_dir> * #<probe_max_distance>] F[#<fast_probe_rate>]
+o<probe-common-probe-fast> else
+    (msg,Invalid axis #<axis>)
+    o<probe-common> return
+o<probe-common-probe-fast> endif
+M100 P0; Disable probe input mask
+o<probe-common-if1> if [#5070 NE 1]
+    M72 ; Restore modal state
+    (msg,Probing failed!)
+    o<probe-common> return
+o<probe-common-if1> endif
+; Back off
+o<probe-common-backof-after-fast> if [ #<axis> EQ 0 ]
+    G01 X[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]
+o<probe-common-backof-after-fast> elseif [ #<axis> EQ 1 ]
+    G01 Y[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]
+o<probe-common-backof-after-fast> elseif [ #<axis> EQ 2 ]
+    G01 Z[-#<probe_dir> * #<fast_backoff>] F[#<backoff_rate>]
+o<probe-common-backof-after-fast> else
+    (msg,Invalid axis #<axis>)
+    o<probe-common> return
+o<probe-common-backof-after-fast> endif
+
+; Probe at slow speed; more precise
+M100 P1; Enable probe input mask
+o<probe-common-probe-slow> if [ #<axis> EQ 0 ]
+    G38.3 X[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>]
+o<probe-common-probe-slow> elseif [ #<axis> EQ 1 ]
+    G38.3 Y[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>]
+o<probe-common-probe-slow> elseif [ #<axis> EQ 2 ]
+    G38.3 Z[#<probe_dir> * #<probe_max_distance>] F[#<slow_probe_rate>]
+o<probe-common-probe-slow> else
+    (msg,Invalid axis #<axis>)
+    o<probe-common> return
+o<probe-common-probe-slow> endif
+M100 P0; Disable probe input mask
+o<probe-common-if2> if [#5070 NE 1]
+    M72 ; Restore modal state
+    (msg,Probing failed!)
+    o<probe-common> return
+o<probe-common-if2> endif
+
+M72 ; Restore modal state ; original G5x co-ords need to set by G10 below
+
+; Set G5x instead of G92 since that is consistent
+; with what AXIS "Touch Off" buttons do
+; Set current G5x offset so current co-ordinate is:
+o<probe-common-set-zero> if [ #<axis> EQ 0 ]
+    G10 L20 P0 X[-#<probe_dir> * [#<probe_bar_thick> + #<bit_offset>]]
+o<probe-common-set-zero> elseif [ #<axis> EQ 1 ]
+    G10 L20 P0 Y[-#<probe_dir> * [#<probe_bar_thick> + #<bit_offset>]]
+o<probe-common-set-zero> elseif [ #<axis> EQ 2 ]
+    G10 L20 P0 Z[-#<probe_dir> * [#<probe_bar_thick> + #<bit_offset>]]
+o<probe-common-set-zero> else
+    (msg,Invalid axis #<axis>)
+    o<probe-common> return
+o<probe-common-set-zero> endif
+
+; Return to original absolute machine position
+G30 F[#<backoff_rate>]
+
+o<probe-common> endsub

@@ -2,6 +2,10 @@
 
 o<probe-x-from-left> sub
 
+; If o<probe-common> is problematic, comment out the next 2 lines!
+o<probe-common> call [0] [1]
+o<probe-z-from-above> return
+
 ; Configuration Variables
 #<probe_max_distance> = 1.0 ; In
 #<backoff_rate> = 20.0 ; In/s
