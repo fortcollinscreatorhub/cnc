@@ -227,14 +227,14 @@
   <property name="halui_cmd12" type="string" value="o&lt;set-modal-defaults&gt; call"/>
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
-  <property name="halui_cmd2" type="string" value="o&lt;g53-g0-xy0&gt; call"/>
-  <property name="halui_cmd3" type="string" value="o&lt;g54-g0-xy0&gt; call"/>
-  <property name="halui_cmd4" type="string" value="o&lt;g55-g0-xy0&gt; call"/>
-  <property name="halui_cmd5" type="string" value="o&lt;g56-g0-xy0&gt; call"/>
-  <property name="halui_cmd6" type="string" value="o&lt;g57-g0-xy0&gt; call"/>
-  <property name="halui_cmd7" type="string" value="o&lt;g58-g0-xy0&gt; call"/>
-  <property name="halui_cmd8" type="string" value="o&lt;g59-g0-xy0&gt; call"/>
-  <property name="halui_cmd9" type="string" value="o&lt;g53-g0-z0&gt; call"/>
+  <property name="halui_cmd2" type="string" value="G90 G0 G53 X0 Y0"/>
+  <property name="halui_cmd3" type="string" value="G90 G0 G54 X0 Y0"/>
+  <property name="halui_cmd4" type="string" value="G90 G0 G55 X0 Y0"/>
+  <property name="halui_cmd5" type="string" value="G90 G0 G56 X0 Y0"/>
+  <property name="halui_cmd6" type="string" value="G90 G0 G57 X0 Y0"/>
+  <property name="halui_cmd7" type="string" value="G90 G0 G58 X0 Y0"/>
+  <property name="halui_cmd8" type="string" value="G90 G0 G59 X0 Y0"/>
+  <property name="halui_cmd9" type="string" value="G90 G0 G53 Z0"/>
   <property name="help" type="string" value="help-realtime.txt"/>
   <property name="homeboth" type="bool" value="False"/>
   <property name="homeindex" type="bool" value="False"/>
