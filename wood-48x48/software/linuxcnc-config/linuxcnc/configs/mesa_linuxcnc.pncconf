@@ -4241,7 +4241,7 @@
   <property name="xhomepos" type="float" value="0.0"/>
   <property name="xhomesearchvel" type="float" value="0.666666666667"/>
   <property name="xhomesequence" type="float" value="1.0"/>
-  <property name="xhomesw" type="float" value="-0.5"/>
+  <property name="xhomesw" type="float" value="-0.6"/>
   <property name="xhometandemsw" type="float" value="0.0"/>
   <property name="xhomevel" type="float" value="0.05"/>
   <property name="xinvertencoder" type="bool" value="False"/>
@@ -4249,7 +4249,7 @@
   <property name="xlatchdir" type="int" value="0"/>
   <property name="xmaxacc" type="float" value="15.0"/>
   <property name="xmaxferror" type="float" value="0.5"/>
-  <property name="xmaxlim" type="float" value="48.0"/>
+  <property name="xmaxlim" type="float" value="47.8"/>
   <property name="xmaxoutput" type="float" value="0.0"/>
   <property name="xmaxvel" type="float" value="2.0"/>
   <property name="xmicrostep" type="float" value="5.0"/>
