@@ -1,0 +1,199 @@
+function near_z_dn() {
+    goto([-, -, near_depth]);
+}
+
+function near_z_up() {
+    move([-, -, near_depth]);
+}
+
+function safe_z() {
+    goto([-, -, safe_depth]);
+}
+
+function safe_z_up() {
+    near_z_up();
+    safe_z();
+}
+
+// Whole step near "end", not near "start" (0)
+function gen_steps(end, step) {
+    local sign;
+    if (end < 0) {
+        sign = -1;
+        end *= sign;
+        step *= sign;
+    } else {
+        sign = 1;
+    }
+    local vals = [];
+    local ix = 0;
+    local cur = end;
+    while (cur > 0) {
+        vals[ix] = sign * cur;
+        ix++;
+        cur -= step;
+    }
+    vals = reverse(vals);
+    return vals;
+}
+
+// No bit diameter compensation is performed
+function pocket_cylinder(cx, cy, radius, depth) {
+    local zs = gen_steps(depth, -step_z);
+    local rs = gen_steps(radius, step_xy);
+
+    goto([cx, cy, -]);
+    near_z_dn();
+
+    foreach (zs; z) {
+        feedrate(feed_move);
+        move([cx, cy, -]);
+
+        feedrate(feed_plunge);
+        move([-, -, z]);
+        feedrate(feed_move);
+
+        foreach(rs; r) {
+            move([cx + r, cy, -]);
+            circle_ccw([cx, cy, -]);
+        }
+    }
+    safe_z_up();
+}
+
+// No bit diameter compensation is performed
+// vec_major_index == 0 -> long cuts along x
+// vec_major_index == 1 -> long cuts along y
+function pocket_cuboid(major_min, major_max, minor_min, minor_max, depth, vec_major_index) {
+    local minor_delta = minor_max - minor_min;
+    local minor_offsets = gen_steps(minor_delta, step_xy);
+    local zs = gen_steps(depth, -step_z);
+    local vec_minor_index = 1 - vec_major_index;
+    local parity = 0;
+    local dest;
+
+    dest = [-, -, -];
+    dest[vec_major_index] = major_min;
+    dest[vec_minor_index] = minor_min;
+    goto(dest);
+    near_z_dn();
+
+    foreach (zs; z) {
+        dest = [-, -, -];
+        dest[vec_major_index] = major_min;
+        dest[vec_minor_index] = minor_min;
+        goto(dest);
+
+        feedrate(feed_plunge);
+        move([-, -, z]);
+        feedrate(feed_move);
+
+        dest = [-, -, -];
+        dest[vec_major_index] = major_max;
+        move(dest);
+
+        parity = 0;
+        foreach (minor_offsets; offset) {
+            if (parity) {
+                major = major_max;
+            } else {
+                major = major_min;
+            }
+
+            dest = [-, -, -];
+            dest[vec_minor_index] = minor_min + offset;
+            move(dest);
+
+            dest = [-, -, -];
+            dest[vec_major_index] = major;
+            move(dest);
+
+            parity = 1 - parity;
+        }
+    }
+    safe_z_up();
+}
+
+// No bit diameter compensation is performed
+function profile_polyline(points, depth) {
+    local zs = gen_steps(bottom_depth + step_z, -step_z);
+
+    local point0 = points[0];
+    local coord0 = [point0[0], point0[1]];
+    if (count(coord0) != 2) {
+        error("Point 0 must only contain x, y coords");
+    }
+
+    // Goto initial corner
+    goto(coord0);
+    near_z_dn();
+
+    // All layers without tabs
+    foreach (zs; z) {
+        feedrate(feed_plunge);
+        move([-, -, z]);
+        feedrate(feed_move);
+
+        foreach (points; point) {
+            coord = [point[0], point[1]];
+            move(coord);
+        }
+        move(coord0);
+    }
+
+    // Last layer with tabs
+    feedrate(feed_plunge);
+    move([-, -, depth]);
+    feedrate(feed_move);
+
+    local coord_cur = coord0;
+    local coord_next;
+    local edge_vec;
+    local edge_len;
+    local tab_pct;
+    local tab_len;
+    local tab_offset;
+    local tab_proportion;
+    local tab_vec;
+    local tab_at;
+    local up;
+    local dn;
+    local first = 1;
+    local ix;
+    foreach (points; point) {
+        if (first) {
+            first = 0;
+            continue;
+        }
+
+        coord_next = [point[0], point[1]];
+        edge_vec = coord_next - coord_cur;
+        edge_len = length(edge_vec);
+
+        for (ix = 2; ix < count(point); ix += 2) {
+            tab_pct = point[ix];
+            tab_len = point[ix + 1];
+            tab_offset = tab_len / 2;
+            tab_proportion = tab_offset / edge_len;
+            tab_vec = tab_proportion * edge_vec;
+            tab_at = coord_cur + (tab_pct * edge_vec);
+            up = tab_at - tab_vec;
+            dn = tab_at + tab_vec;
+
+            move(up);
+            feedrate(feed_plunge);
+            move([-, -, depth + step_z]);
+            feedrate(feed_move);
+            move(dn);
+            feedrate(feed_plunge);
+            move([-, -, depth]);
+            feedrate(feed_move);
+        }
+
+        move(coord_next);
+        coord_cur = coord_next;
+    }
+    move(coord0);
+
+    safe_z_up();
+}
