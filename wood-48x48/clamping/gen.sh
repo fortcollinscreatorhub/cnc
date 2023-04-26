@@ -1,17 +1,11 @@
 #!/bin/bash
 
+cd $(dirname "$0")
+
 for n in $(seq 2 5); do
-    ~/git_wa/gcmc/src/gcmc \
-        -i \
-        -o straight-${n}.ngc \
-        -Dmount_hole_count=${n} \
-        straight.gcmc
+    ./straight.py "${n}" > "straight-${n}.ngc"
 done
 
 for n in $(seq 2 5); do
-    ~/git_wa/gcmc/src/gcmc \
-        -i \
-        -o corner-${n}.ngc \
-        -Dmount_hole_count=${n} \
-        corner.gcmc
+    ./corner.py "${n}" > "corner-${n}.ngc"
 done

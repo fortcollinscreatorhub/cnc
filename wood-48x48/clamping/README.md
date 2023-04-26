@@ -1,10 +1,11 @@
-The design is created using GCMC:
-https://www.vagrearg.org/content/gcmc
+To re-generate all the GCode files:
 
-TBH, GCMC could easily be re-written as a Python module, without too many
-changes to the design file.
+```shell
+./gen.sh
+```
 
 To simulate with LinuxCNC:
+
 ```shell
 ~swarren/git_wa/linuxcnc/scripts/linuxcnc \
     /home/swarren/git_wa/linuxcnc/configs/sim/axis/axis.ini
