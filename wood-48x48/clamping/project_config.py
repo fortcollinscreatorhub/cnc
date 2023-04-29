@@ -21,8 +21,15 @@ class ProjectConfig(object):
         self.step_z = 0.1
         self.safe_depth = 1.0
         self.near_depth = 0.1
-        self.lip_depth = -0.5
-        self.bottom_depth = -0.75
+        # Clamps are built from this material:
+        self.material_thick = 0.750
+        # Make sure we cut all the way through the material:
+        self.overcut_depth = 0.005
+        # Lip should be same thickness as the 1/4" waste board
+        # we'll use along with the clamps:
+        self.waste_thick = 0.234
+        self.lip_depth = -(self.material_thick - self.waste_thick)
+        self.bottom_depth = -(self.material_thick + self.overcut_depth)
         self.feed_move = 30
         self.feed_plunge = 10
         self.tab_length = 0.1
