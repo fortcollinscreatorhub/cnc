@@ -47,17 +47,17 @@ Then, `right click -> Save as...` and instead of saving it as a `Text Document`,
 
 On the top set of tabs, choose `Toolpaths -> Install PostProcessor...`:
 
-![Install PostProcessor](./images/install_postprocessor_1.png)
+![Install PostProcessor](./images/aspire_install_postprocessor_1.png)
 
 Navigate to where you saved your `.pp` files, and select the one you want to install:
 
 
-![Select PostProcessor](./images/install_postprocessor_2.png)
+![Select PostProcessor](./images/aspire_install_postprocessor_2.png)
 
 You will be asked if you want to make this the default post-processor. Choose yes if you don't want to hunt it down in the rather
 long list of provided post-processors later.
 
 Finally, when you go to save your toolpath, select the FCCH post-processor from the list before exporting:
 
-![Select PostProcessor](./images/choose_postprocessor.png)
+![Select PostProcessor](./images/aspire_choose_postprocessor.png)
 
