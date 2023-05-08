@@ -6,8 +6,8 @@ Below outlines steps for installing the FCCH post-processor configurations for b
 
 Choose one of the below links (or both) to retrieve the raw configuration:
 
-- [FCCH LinuxCNC post-processor inches](https://raw.githubusercontent.com/fortcollinscreatorhub/cnc/master/wood-48x48/software/vcarve-post-processors/FCCH_LinuxCNC_Arcs_inch.pp)
-- [FCCH LinuxCNC post-processor mm](https://raw.githubusercontent.com/fortcollinscreatorhub/cnc/master/wood-48x48/software/vcarve-post-processors/FCCH_LinuxCNC_Arcs_mm.pp)
+- [FCCH LinuxCNC post-processor inches](https://raw.githubusercontent.com/fortcollinscreatorhub/cnc/master/wood-48x48/software/vcarve-post-processors/FCCH%20LinuxCNC%20Arcs(inch)(!.ngc).pp)
+- [FCCH LinuxCNC post-processor mm](https://raw.githubusercontent.com/fortcollinscreatorhub/cnc/master/wood-48x48/software/vcarve-post-processors/FCCH%20LinuxCNC%20Arcs(mm)(!.ngc).pp)
 
 Then, `right click -> Save as...` and instead of saving it as a `Text Document`, save it as type `All Files`:
 
