@@ -8,7 +8,7 @@ class ProjectConfig(object):
             self.mount_hole_count = int(sys.argv[1])
 
         # Configuration
-        self.mount_hole_diam = 1.0
+        self.mount_hole_diam = 0.97
         self.screw_hole_diam = 0.5
         self.corner_hole_diam = 0.5
         self.margin_side = 1.0
