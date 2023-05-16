@@ -1,0 +1,42 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# CNC via motherboard:
+
+#auto ens3
+#iface ens3 inet static
+#	address 10.1.10.110
+#	netmask 255.255.255.0
+#	gateway 10.1.10.1
+
+auto ens3
+iface ens3 inet dhcp
+
+auto eno1
+iface eno1 inet static
+	address 192.168.1.2
+	netmask 255.255.255.0
+	#post-up /sbin/ethtool -C eno1 rx-usecs 0 || true
+
+# CNC via PCIe card:
+
+##auto eno1
+##iface eno1 inet static
+##	address 10.1.10.110
+##	netmask 255.255.255.0
+##	gateway 10.1.10.1
+#
+#auto eno1
+#iface eno1 inet dhcp
+#
+#auto ens3
+#iface ens3 inet static
+#	address 192.168.1.2
+#	netmask 255.255.255.0
+#	#post-up /sbin/ethtool -C ens3 rx-usecs 0 || true
