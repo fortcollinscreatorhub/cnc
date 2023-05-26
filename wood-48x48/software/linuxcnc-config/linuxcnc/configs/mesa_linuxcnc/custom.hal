@@ -57,3 +57,10 @@ loadrt not names=machinestateinverter
 addf machinestateinverter servo-thread
 net machine-is-on => machinestateinverter.in
 net machine-is-off <= machinestateinverter.out => hm2_7i96s.0.ssr.00.out-03
+
+# FCCH custom dust collector control
+loadusr -W ./fcch-dust-collector.py
+newsig fcch-sig-dust-on bit
+sets fcch-sig-dust-on FALSE
+net fcch-sig-dust-on => fcch-dust-collector.on
+# Driven from PyVCP in custom_postgui.hal

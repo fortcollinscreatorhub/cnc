@@ -11,6 +11,11 @@ The contents of this file will not be overwritten when you run stepconf again.
      <font>('fixed',10)</font>
 </button>
 
+<checkbutton>
+    <text>"Dust on"</text>
+    <halpin>"fcch-request-dust-on"</halpin>
+</checkbutton>
+
 <button>
      <halpin>"fcch-btn-probe-z-from-above"</halpin>
      <text>"Probe Z\nfrom above"</text>
