@@ -20,4 +20,4 @@ net fcch-sig-g57-g0-xy0         halui.mdi-command-10 <= pyvcp.fcch-btn-g57-g0-xy
 net fcch-sig-g58-g0-xy0         halui.mdi-command-11 <= pyvcp.fcch-btn-g58-g0-xy0
 net fcch-sig-g59-g0-xy0         halui.mdi-command-12 <= pyvcp.fcch-btn-g59-g0-xy0
 
-net fcch-sig-dust-on <= pyvcp.fcch-request-dust-on
+net dust-ui-request => fcch-dust-collector.ui-request <= pyvcp.fcch-request-dust-on

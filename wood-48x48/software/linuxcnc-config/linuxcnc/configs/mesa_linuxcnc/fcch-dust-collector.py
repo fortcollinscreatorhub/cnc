@@ -16,14 +16,16 @@ if mqtt_user is not None:
     mqtt_auth = {'username': mqtt_user, 'password': mqtt_pass}
 
 h = hal.component("fcch-dust-collector")
-h.newpin("on", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("ui-request", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("is-auto", hal.HAL_BIT, hal.HAL_IN)
+h.newpin("rfid-present", hal.HAL_BIT, hal.HAL_IN)
 h.ready()
 
 val_last_publish = None
 time_last_publish = time.time()
 try:
     while True:
-        val_now = h.on
+        val_now = (h['ui-request'] or h['is-auto']) and h['rfid-present']
         time_since_last_publish = time.time() - time_last_publish
         if val_now != val_last_publish or time_since_last_publish > 10:
             if val_now:

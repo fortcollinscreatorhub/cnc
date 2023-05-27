@@ -49,8 +49,14 @@ sets probe-mask false
 newsig probe-radius float
 sets probe-radius 0.125
 
+# FCCH custom dust collector control
+loadusr -W ./fcch-dust-collector.py
+net dust-is-auto => fcch-dust-collector.is-auto <= halui.mode.is-auto
+
 # Enable motion only when motor drive voltage is in-spec
-net motor-bus-okay <= hm2_7i96s.0.inm.00.input-10-not => motion.enable
+net motor-bus-okay <= hm2_7i96s.0.inm.00.input-10-not
+net motor-bus-okay => motion.enable
+net motor-bus-okay => fcch-dust-collector.rfid-present
 
 # Disable motor drives when turned off in software
 loadrt not names=machinestateinverter
@@ -58,9 +64,3 @@ addf machinestateinverter servo-thread
 net machine-is-on => machinestateinverter.in
 net machine-is-off <= machinestateinverter.out => hm2_7i96s.0.ssr.00.out-03
 
-# FCCH custom dust collector control
-loadusr -W ./fcch-dust-collector.py
-newsig fcch-sig-dust-on bit
-sets fcch-sig-dust-on FALSE
-net fcch-sig-dust-on => fcch-dust-collector.on
-# Driven from PyVCP in custom_postgui.hal
