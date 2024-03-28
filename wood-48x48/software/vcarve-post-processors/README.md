@@ -15,6 +15,16 @@ Then, `right click -> Save as...` and instead of saving it as a `Text Document`,
 
 ## VCarve Pro
 
+## Version 11.5
+
+As of v11.5 (at least in the Makerspace edition), you can no longer create or
+edit custom post-processors. Vectric support needs to import any
+customizations for you, then you can download them by updating the post-
+processor database. Use the following pre-configured post-processors:
+
+* LinuxCNC Archs(inch)(*.ngc)
+* MS \- FCCH LinuxCNC Arcs(mm)
+
 ### Tell Vectric you want to create some custom post-processors
  
 * Open a project.
