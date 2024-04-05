@@ -8,7 +8,7 @@ mqtt_hostname = '10.1.10.156'
 mqtt_port = 1883
 mqtt_user = None
 mqtt_pass = None
-mqtt_client_id = 'FIXME'
+mqtt_client_id = 'pc-linuxcnc'
 mqtt_topic = 'stat/cnc-wood-48x48/STATE'
 
 mqtt_auth = None
