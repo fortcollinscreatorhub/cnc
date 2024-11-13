@@ -27,7 +27,7 @@ try:
     while True:
         val_now = (h['ui-request'] or h['is-auto']) and h['rfid-present']
         time_since_last_publish = time.time() - time_last_publish
-        if val_now != val_last_publish or time_since_last_publish > 10:
+        if val_now != val_last_publish or time_since_last_publish > 30:
             if val_now:
                 msg = 'ON'
             else:
@@ -45,6 +45,7 @@ try:
                 auth = mqtt_auth,
                 tls = None)
             time_last_publish = time.time()
+            val_last_publish = val_now
         time.sleep(1)
 except KeyboardInterrupt:
     raise SystemExit
